@@ -5,3 +5,7 @@ from app.models import Bolo
 def index(request):
     bolos = Bolo.objects.all()
     return render(request, "index.html", {"bolos": bolos})
+
+
+def login(request):
+    return render(request, "login.html")
