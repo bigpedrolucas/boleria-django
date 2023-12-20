@@ -162,6 +162,11 @@
                 scrollTop: $(".product-section").offset().top
             }, 1500);
         });
+        $(".bordered-btn").click(function () {
+            $("html, body").animate({
+                scrollTop: $(document).height() - $(window).height()
+            }, 1500);
+        });
 
     });
 

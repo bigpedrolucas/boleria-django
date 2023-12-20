@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from app.models import Bolo
 
 
 def index(request):
-    return render(request, "index.html")
+    bolos = Bolo.objects.all()
+    return render(request, "index.html", {"bolos": bolos})
