@@ -1,5 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>login page</h1>
+	<!-- contact form -->
+	<div class="contact-from-section mt-75 mb-75">
+		<div class="container">
+			<div class="row mt-4">
+				<div class="col-lg-6 mb-5 mb-lg-0">
+					<div class="form-title">
+						<h2>LOGIN</h2>
+						<p>Entre com suas credenciais</p>
+					</div>
+				 	<div id="form_status"></div>
+					<div class="contact-form">
+						<form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
+                            <p>
+                                <input type="email" placeholder="Email" name="email" id="email">
+                            </p>
+							<p>
+                                <input type="password" placeholder="Senha" name="email" id="email">
+							</p>
+							<p><input type="submit" value="Login"></p>
+							<p>Não tem cadastro? <a href="">Cadastre-se</a></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end contact form -->
 {% endblock %}
