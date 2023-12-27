@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<style>
+		#password {
+			width: 49%;
+			padding: 15px;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+		}
+		#login-btn {
+			color: #ffffff !important;
+		}
+	</style>
+	<!-- contact form -->
+	<div class="contact-from-section">
+		<div class="container">
+			<div class="row mt-4 mb-4">
+				<div class="col-lg-6 mb-5 mb-lg-0">
+					<div class="form-title">
+						<h2>LOGIN</h2>
+						<p>Entre com suas credenciais</p>
+					</div>
+				 	<div id="form_status"></div>
+					<div class="contact-form">
+						<form id="fruitkha-contact" method="post">
+							{% csrf_token %}
+                            <p>
+                                <input type="text" placeholder="Usuário" name="username" id="email">
+                            </p>
+							<p>
+                                <input type="password" placeholder="Senha" name="password" id="password">
+							</p>
+							<p><input type="submit" value="Login" id="login-btn"></p>
+							<p>Não possui cadastro? <a href="{% url 'cadastro' %}">Cadastre-se</a></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end contact form -->
+{% endblock %}

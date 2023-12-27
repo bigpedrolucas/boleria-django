@@ -1,4 +1,15 @@
 <!-- header -->
+<style>
+    #logout {
+        border: 0;
+        background: none;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    #logout:hover {
+        color: #E363AA;
+    }
+</style>
 <div class="top-header-area" id="sticker">
     <div class="container">
         <div class="row">
@@ -15,35 +26,21 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="#">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Static Home</a></li>
-                                    <li><a href="index_2.html">Slider Home</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="404.html">404 page</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Check Out</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="cadastro.html">News</a></li>
-                                    <li><a href="cadastro.html">Shop</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="news.html">News</a>
-                                <ul class="sub-menu">
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="single-news.html">Single News</a></li>
-                                </ul>
-                            </li>
+                            <li class="current-list-item"><a href="#">Home</a></li>
+                            
+                            {% if user.is_authenticated %}
+                            <li><a href="">Meus Pedidos</a></li>
+                            <li><a href="{% url 'logout_page' %}">Logout</a>
+                            {% else %}
                             <li><a href="{% url 'login' %}">Login</a></li>
+                            {% endif %}
                             <li>
                                 <div class="header-icons">
                                     <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                    {% if user.is_authenticated %}
+                                        <span style="color: #FFFFFF">Olá, {{ user }}</span>
+                                    {% endif %}
                                 </div>
                             </li>
                         </ul>

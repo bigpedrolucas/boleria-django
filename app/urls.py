@@ -6,5 +6,6 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("login/", views.login, name="login"),
+    path("logout/", views.logout_page, name="logout_page"),
+    path("signup/", views.cadastro, name="cadastro"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

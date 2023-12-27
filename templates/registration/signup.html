@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<style>
+		#password, #id_password1, #id_password2 {
+			width: 49%;
+			padding: 15px;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+		}
+		#login-btn {
+			color: #ffffff !important;
+		}
+	</style>
+	<!-- contact form -->
+	<div class="contact-from-section">
+		<div class="container">
+			<div class="row mt-4 mb-4">
+				<div class="col-lg-6 mb-5 mb-lg-0">
+					<div class="form-title">
+						<h2>CADASTRO</h2>
+					</div>
+				 	<div id="form_status"></div>
+					<div class="contact-form">
+						<form id="fruitkha-contact" method="post">
+							{% csrf_token %}
+                            {% for field in form %}
+                            <p>
+                                {% if field.errors %}
+                                <ul class="errorlist">
+                                    {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                                {{ field.label_tag }}{{ field }}
+                            </p>
+                            {% endfor %}
+							<p><input type="submit" value="Cadastrar" id="login-btn"></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end contact form -->
+{% endblock %}
